@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html style="background-color:#000;">
+<head>
+<meta charset="utf-8"/>
+<title>Floatbox Video Player 7.5.1</title>
+<script src="floatbox.js"></script>
+
+<style>
+html, body, #container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    border-width: 0;
+    background-color: #000;
+}
+p {
+    background-color: #fffacd;
+    width: 60%;
+    text-align: center;
+    margin: 24px auto;
+    padding: 16px;
+}
+</style>
+
+</head>
+<body>
+<div id="container"></div>
+
+<script>
+fb.ready( function () {
+
+    var timer, status,
+        handlers = [],
+        $container = fb.$( 'container' ),
+        $player = document.createElement( 'video' ),
+        params = fb.deserialize( location.search.substring( 1 ) ),
+        mp4Path = params.source,  // IE 9+, Safari 3.1+, Firefox 21.0+ (requires OS support), Chrome (recent with OS support, older version h/w acceleration had problems on some video cards)
+        webmPath = mp4Path.replace( /\.mp4\b/i, '.webm' ),  // Chrome 6.0+, Firefox 4.0+, Opera 10.6+ (IE 9+ and OSX Safari 3.1 if system codecs are installed)
+    //         oggPath =  mp4Path.replace( /\.mp4\b/i, '.ogg' ),  // Chrome, Firefox 3.5+, Opera 10.5+ (OSX Safari 3.1 if system codec installed)
+        posterPath = params.poster == 'null' ? null : params.poster || mp4Path.replace( /\.mp4\b/i, '.jpg' ),
+        autoPlay = params.autoplay != '0',
+        autoEnd = params.autoend != '0',
+        esc = params.esc != 'false',
+        canPlayMp4 = $player.canPlayType && $player.canPlayType( 'video/mp4' ),
+        canPlayWebm = $player.canPlayType && $player.canPlayType( 'video/webm' ),
+        showPoster = !autoPlay;
+
+    fb.preload( posterPath );
+    $container.style.backgroundColor = params.bgcolor || 'transparent';
+    $container.focus();
+    buildPlayer();
+
+    function buildPlayer () {
+
+    // HTML5 video
+        if ( canPlayMp4 || canPlayWebm ) {
+
+            fb.removeEvent( handlers );
+            handlers.length = 0;
+            if ( $player.parentNode ) {
+                $player.parentNode.removeChild( $player );
+            }
+
+            fb.attr( $player, {
+                id: 'fbPlayer',
+                width: '100%',
+                height: '100%',
+                preload: 'metadata',
+                controls: '',
+                poster: showPoster ? posterPath : null,
+                src: canPlayMp4 ? mp4Path : webmPath
+            } );
+
+            handlers.push(
+                fb.addEvent( $player, 'loadedmetadata', onLoad ),
+                fb.addEvent( $player, [ 'playing', 'error' ], onAction ),
+                fb.addEvent( $player, [ 'mouseover', 'mouseout' ], onMousemove ),
+                fb.addEvent( $player, [ 'mousedown', 'touchstart', 'mouseup', 'touchend' ], onTap ),
+                esc && fb.addEvent( document, 'keydown', onKey, true ),
+                autoEnd && fb.addEvent( $player, 'ended', onFinish )
+            );
+
+            $container.appendChild( $player );
+        }
+
+    // can't play, offer download
+        else {
+
+            $container.innerHTML =
+                '<p>Uh-oh. Your browser is unable to play this video.<br />' +
+                'Please right-click <a href="' + mp4Path + '">this link</a> ' +
+                'to download the video for offline viewing with a standalone player.</p>';
+        }
+    }
+    // end buildPlayer
+
+    function onLoad () {
+        if ( autoPlay ) {
+            $player.play();
+        }
+        if ( !timer ) {
+            timer = setTimeout( function () {
+                fb.preload( posterPath, function ( img ) {
+                    if ( img.ok && !$player.started ) {
+                        showPoster = true;
+                        buildPlayer();  // rebuild with poster
+                    }
+                } );
+            }, autoPlay ? 222 : 22 );
+        }
+    }
+
+    function onAction ( e ) {
+        clearTimeout( timer );
+        if ( e.type == 'playing' ) {
+            $player.started = true;
+        }
+        else {
+            if ( canPlayMp4 ) {
+                canPlayMp4 = false;
+            }
+            else {
+                canPlayWebm = false;
+            }
+            timer = 0;
+            buildPlayer();
+        }
+    }
+
+    function onMousemove ( e ) {
+        if ( !fb.usingTouch ) {
+            fb.attr( $player, 'controls', e.type == 'mouseout' && !$player.paused ? null : '' );
+        }
+    }
+
+    function onTap ( e ) {
+        if ( e.button || e.touches && e.touches[ 1 ] ) {
+            status = null;
+        }
+        else if ( e.type == 'mousedown' || e.type == 'touchstart' ) {
+            if ( status !== !!status && $player.offsetHeight - ( e.touches ? e.touches[ 0 ] : e ).clientY > 55 ) {
+                status = $player.paused;
+            }
+        }
+        else {
+            setTimeout( function () {
+                if ( $player.paused === status ) {  // play state not already toggled
+                    if ( status ) {
+                        $player.started = true;
+                        $player.play();
+                    }
+                    else {
+                        $player.pause();
+                    }
+                }
+                status = null;
+            }, 77 );
+        }
+    }
+
+    function onKey ( e ) {
+        if ( e.keyCode == 27 ) {  // esc
+            fb.stopEvent( e );
+            onFinish( 'end' );
+        }
+    }
+
+    function onFinish ( msg ) {
+        fb.removeEvent( handlers );  // why not
+        handlers.length = 0;
+        $container.innerHTML = '';
+        parent.postMessage( '{"event":"' + ( msg == 'end' ? msg : 'finish' ) + '"}', '*' );
+    }
+
+} );
+
+</script>
+
+</body>
+</html>
