@@ -3,7 +3,7 @@
  * Created by GuiltyCode
  * Date: 5/20/2018
  */
-include_once '../includes/toon.inc.php';
+include_once 'cdbh.inc.php';
 include_once 'dbh.inc.php';
 session_start();
 ?>
@@ -27,11 +27,14 @@ session_start();
             <div class="nav-login">
                 <?php
                 if (isset($_SESSION['u_id'])) {
-                    echo 'character info here';
-                } else {
-                    echo 'Create a Character';
+                $sql = "SELECT * FROM characters WHERE user_uid='$uid'";
+                $result = $toon;
+                $resultCheck = mysqli_num_rows($result);
+                if ($resultCheck > null) {
+                    echo '';
+                    exit();
                 }
-
+                }
                 ?>
             </div>
             <div class="nav-uname">
