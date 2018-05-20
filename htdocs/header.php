@@ -11,6 +11,8 @@
 <title>Super Awesome Title!</title>
 <meta charset = "UTF-8"/>
 <link href="style.css" rel="stylesheet" type="text/css"/>
+    <link rel="stylesheet" href="/floatbox_752/floatbox.css" />
+    <script src="/floatbox_752/floatbox.js"></script>
 </head>
 <body>
 <header>
