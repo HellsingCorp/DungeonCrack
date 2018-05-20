@@ -20,18 +20,24 @@
 <footer>
 <dev id="footer">
 
-    <a href="/loginsystem/play.php" class="floatbox" data-fb-options="instanceName:play overlayOpacity:0 closeOnNewWindow:false outsideClickCloses:false contentClickCloses:false" onclick="fb.start('play'); ">Play</a>
+    <a href="/loginsystem/play.php" class="floatbox" data-fb-options="instanceName:play overlayOpacity:0
+    closeOnNewWindow:false outsideClickCloses:false contentClickCloses:false" onclick="fb.start('play'); ">
+        Play</a>
     <script>
         var play = fb.getInstance( 'play' );
     </script>
 
-    <a href="/loginsystem/toon.php" class="floatbox" data-fb-options="instanceName:toon overlayOpacity:0 closeOnNewWindow:false outsideClickCloses:false contentClickCloses:false" onclick="fb.start('toon'); ">Character</a>
+    <a href="/loginsystem/toon.php" class="floatbox" data-fb-options="instanceName:toon overlayOpacity:0
+    closeOnNewWindow:false outsideClickCloses:false contentClickCloses:false" onclick="fb.start('toon'); ">
+        Character</a>
 
     <script>
         var toon = fb.getInstance( 'toon' );
     </script>
 
-    <a href="/loginsystem/thetube.php" class="floatbox" data-fb-options="instanceName:tube overlayOpacity:0 closeOnNewWindow:false outsideClickCloses:false contentClickCloses:false" onclick="fb.start('tube'); ">thetube</a>
+    <a href="/loginsystem/thetube.php" class="floatbox" data-fb-options="instanceName:tube overlayOpacity:0
+    closeOnNewWindow:false outsideClickCloses:false contentClickCloses:false" onclick="fb.start('tube'); ">
+        thetube</a>
 
     <script>
         var toon = fb.getInstance( 'tube' );
