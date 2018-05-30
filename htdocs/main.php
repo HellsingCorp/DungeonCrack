@@ -4,7 +4,7 @@
  * Date: 5/19/2018
  * Time: 4:45 AM
  */
-
+session_start();
 include_once 'includes/dbh.inc.php';
 ?>
 
@@ -23,31 +23,16 @@ include_once 'includes/dbh.inc.php';
 
     <?php
 
-    if (session_status() > PHP_SESSION_NONE) {
-        if (session_status() > PHP_SESSION_ACTIVE) {
-						echo '';
-					} else {
-						echo '<form action="includes/login.inc.php" method="POST">
+    if (isset($_SESSION['u_id'])) {
+        echo 'Welcome Back';
+        echo 'Player';
+    }
+    else {echo '<form action="includes/login.inc.php" method="POST">
         <input type="text" name="uid" placeholder="Username/e-mail">
         <input type="password" name="pwd" placeholder="password">
         <button type="submit" name="submit">Login</button>
     </form>
-    <a href="signup.php">Sign up</a>';
-					};
-
-
-    } else {
-
-        if ($_SESSION['u_char'] = 0) { include_once 'charcrea.php';
-
-        } else {
-            echo 'Welcome Back';
-            echo 'Player';
-
-        };
-
-    };
-
+    <a href="signup.php">Sign up</a>';}
     ?>
 
 </section>

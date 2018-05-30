@@ -8,7 +8,7 @@ if (isset($_POST['submit'])) {
     $email = mysqli_real_escape_string($conn, $_POST['email']);
     $uid = mysqli_real_escape_string($conn, $_POST['uid']);
     $pwd = mysqli_real_escape_string($conn, $_POST['pwd']);
-    $pwd = mysqli_real_escape_string($conn, $_POST['char']);
+    $char = mysqli_real_escape_string($conn, $_POST['char']);
 
 	//Error handlers
 	//check for empty fields

@@ -3,7 +3,6 @@
  * Created by GuiltyCode
  * Date: 5/20/2018
  */
-session_start();
 ?>
 
 <!DOCTYPE html>

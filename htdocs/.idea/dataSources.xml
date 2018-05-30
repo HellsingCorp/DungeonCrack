@@ -1,25 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="Game@dungeoncrack.cie8ij1b0lfr.ca-central-1.rds.amazonaws.com" uuid="9f305482-3317-47b1-b5c1-73c97c120831">
+    <data-source source="LOCAL" name="MariaDB - loginsystem@localhost" uuid="bbd296e5-3566-460f-af45-49feead7f066">
       <driver-ref>mariadb</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.mariadb.jdbc.Driver</jdbc-driver>
-      <jdbc-url>jdbc:mariadb://dungeoncrack.cie8ij1b0lfr.ca-central-1.rds.amazonaws.com:3306/Game</jdbc-url>
-      <driver-properties>
-        <property name="autoReconnect" value="true" />
-        <property name="zeroDateTimeBehavior" value="convertToNull" />
-        <property name="tinyInt1isBit" value="false" />
-        <property name="characterEncoding" value="utf8" />
-        <property name="characterSetResults" value="utf8" />
-        <property name="yearIsDateType" value="false" />
-      </driver-properties>
-    </data-source>
-    <data-source source="LOCAL" name="game@localhost" uuid="7f229e75-0b82-4d6a-bb18-59bc24215f36">
-      <driver-ref>mariadb</driver-ref>
-      <synchronize>true</synchronize>
-      <jdbc-driver>org.mariadb.jdbc.Driver</jdbc-driver>
-      <jdbc-url>jdbc:mariadb://localhost:3306/game</jdbc-url>
+      <jdbc-url>jdbc:mariadb://localhost:3306/loginsystem</jdbc-url>
       <driver-properties>
         <property name="autoReconnect" value="true" />
         <property name="zeroDateTimeBehavior" value="convertToNull" />
