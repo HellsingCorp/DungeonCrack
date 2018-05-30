@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="dataSourceStorageLocal">
-    <data-source name="MariaDB - loginsystem@localhost" uuid="bbd296e5-3566-460f-af45-49feead7f066">
+    <data-source name="Game@dungeoncrack.cie8ij1b0lfr.ca-central-1.rds.amazonaws.com" uuid="d594177b-41fa-4b31-8ded-cc139a5cb847">
       <database-info product="MySQL" version="10.1.31-MariaDB" jdbc-version="4.2" driver-name="MariaDB connector/J" driver-version="2.2.1">
         <extra-name-characters>#@</extra-name-characters>
         <identifier-quote-string>`</identifier-quote-string>
       </database-info>
-      <case-sensitivity plain-identifiers="lower" quoted-identifiers="lower" />
+      <case-sensitivity plain-identifiers="exact" quoted-identifiers="exact" />
       <secret-storage>master_key</secret-storage>
-      <user-name>root</user-name>
-      <introspection-schemas>*:loginsystem</introspection-schemas>
+      <user-name>DungeonMaster</user-name>
+      <introspection-schemas>*:Game</introspection-schemas>
     </data-source>
   </component>
 </project>
