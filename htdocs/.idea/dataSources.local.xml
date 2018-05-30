@@ -1,15 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="dataSourceStorageLocal">
-    <data-source name="MariaDB - loginsystem@localhost" uuid="bbd296e5-3566-460f-af45-49feead7f066">
+    <data-source name="Game@dungeoncrack.cie8ij1b0lfr.ca-central-1.rds.amazonaws.com" uuid="9f305482-3317-47b1-b5c1-73c97c120831">
+      <database-info product="MySQL" version="10.1.31-MariaDB" jdbc-version="4.2" driver-name="MariaDB connector/J" driver-version="2.2.1">
+        <extra-name-characters>#@</extra-name-characters>
+        <identifier-quote-string>`</identifier-quote-string>
+      </database-info>
+      <case-sensitivity plain-identifiers="exact" quoted-identifiers="exact" />
+      <secret-storage>master_key</secret-storage>
+      <user-name>DungeonMaster</user-name>
+      <introspection-schemas>*:Game</introspection-schemas>
+    </data-source>
+    <data-source name="game@localhost" uuid="7f229e75-0b82-4d6a-bb18-59bc24215f36">
       <database-info product="MySQL" version="10.1.31-MariaDB" jdbc-version="4.2" driver-name="MariaDB connector/J" driver-version="2.2.1">
         <extra-name-characters>#@</extra-name-characters>
         <identifier-quote-string>`</identifier-quote-string>
       </database-info>
       <case-sensitivity plain-identifiers="lower" quoted-identifiers="lower" />
-      <secret-storage>master_key</secret-storage>
       <user-name>root</user-name>
-      <introspection-schemas>*:loginsystem</introspection-schemas>
+      <introspection-schemas>*:game</introspection-schemas>
     </data-source>
   </component>
 </project>
