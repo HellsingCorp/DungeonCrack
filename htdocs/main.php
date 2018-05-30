@@ -5,7 +5,7 @@
  * Time: 4:45 AM
  */
 
-session_start();
+include_once 'includes/dbh.inc.php';
 ?>
 
 <head>
@@ -17,7 +17,41 @@ session_start();
 </head>
 <section class="main-container">
 
+
+
+
+
+    <?php
+
+    if (session_status() > PHP_SESSION_NONE) {
+        if (session_status() > PHP_SESSION_ACTIVE) {
+						echo '';
+					} else {
+						echo '<form action="includes/login.inc.php" method="POST">
+        <input type="text" name="uid" placeholder="Username/e-mail">
+        <input type="password" name="pwd" placeholder="password">
+        <button type="submit" name="submit">Login</button>
+    </form>
+    <a href="signup.php">Sign up</a>';
+					};
+
+
+    } else {
+
+        if ($_SESSION['u_char'] = 0) { include_once 'charcrea.php';
+
+        } else {
+            echo 'Welcome Back';
+            echo 'Player';
+
+        };
+
+    };
+
+    ?>
+
 </section>
+
 <?php
 	include_once 'footer.php';
 ?>

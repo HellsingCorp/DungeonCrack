@@ -107,6 +107,12 @@ input, select {
 	color: #b70d07;
 }
 
+form {
+	margin: 0 auto;
+	width:500px;
+	text-align: center;
+}
+
 body {
 	line-height:1;
 	background-color: #ccc;
@@ -115,8 +121,8 @@ body {
 .main-wrapper {
 	margin: 0 auto;
 	width: 1000px;
-	color: red;
-	background-color: #b20e0e;
+	color: #000000;
+	background-color: #fff;
 }
 
 .tube-wrapper {

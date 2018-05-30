@@ -16,8 +16,6 @@
 <body>
 
 
-
-
 <footer>
 <dev id="footer">
 
@@ -36,6 +34,14 @@
         var toon = fb.getInstance( 'toon' );
     </script>
 
+    <a href="charcrea.php" class="floatbox" data-fb-options="instanceName:charcrea overlayOpacity:0
+    closeOnNewWindow:false outsideClickCloses:false contentClickCloses:false" onclick="fb.start('tube'); ">
+        charcrea</a>
+
+    <script>
+        var toon = fb.getInstance( 'charcrea' );
+    </script>
+
     <a href="thetube.php" class="floatbox" data-fb-options="instanceName:tube overlayOpacity:0
     closeOnNewWindow:false outsideClickCloses:false contentClickCloses:false" onclick="fb.start('tube'); ">
         thetube</a>
@@ -44,5 +50,15 @@
         var toon = fb.getInstance( 'tube' );
     </script>
    </dev>
+
+    <form action="includes/logout.inc.php" method="POST">
+        <button type="submit" name="submit">Logout</button>
+    </form>
+
 </footer>
 </body>
+
+
+
+
+

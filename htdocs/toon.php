@@ -3,43 +3,173 @@
  * Created by GuiltyCode
  * Date: 5/20/2018
  */
-include_once 'cdbh.inc.php';
-include_once 'dbh.inc.php';
-session_start();
+include_once 'includes/cdbh.inc.php';
 
 ?>
 
                 <?php
-//Error handlers
-//Check if inputs are empty
-if (empty($uid)) {
-    echo 'you dont exsist yet!';
-    exit();
-} else {
-                    include 'dbh.inc.php';
-                    include 'cdbh.inc.php';
-                $sql = "SELECT * FROM users WHERE user_uid='$uid'";
-                $result1 = $conn;
-                $resultCheck = mysqli_num_rows($result1);
-                $sql = "SELECT * FROM characters WHERE user_uid='$uid'";
-                $result2 = $cdbh;
-                $resultCheck2 = mysqli_num_rows($result2);
-                if ($resultCheck1 = $resultCheck2) {
-                   echo $_SESSION['F_Name'] = $row['char_name_first'];
-                   echo $_SESSION['L_Name'] = $row['char_name_last'];
-                   echo $_SESSION['str'] = $row['char_str'];
-                   echo $_SESSION['end'] = $row['char_end'];
-                   echo $_SESSION['agi'] = $row['char_agi'];
-                   echo $_SESSION['dex'] = $row['char_dex'];
-                   echo $_SESSION['tec'] = $row['char_tec'];
-                   echo $_SESSION['int'] = $row['char_int'];
-                   echo $_SESSION['wil'] = $row['char_wil'];
-                   echo $_SESSION['per'] = $row['char_per'];
-                   echo $_SESSION['cha'] = $row['char_cha'];
-                   echo $_SESSION['mag'] = $row['char_mag'];
-                    exit();
-                } else {
 
-                }
-                }
+// Check connection
+if (mysqli_connect_errno())
+{
+echo "Failed to connect to MySQL: " . mysqli_connect_error();
+}
+
+$result = mysqli_query($cdbh,"SELECT * FROM characters");
+
+echo "<table border='1'>
+<tr>
+<th>Firstname</th>
+<th>Lastname</th>
+</tr>";
+
+while($row = mysqli_fetch_array($result))
+{
+echo "<tr>";
+echo "<td>" . $row['char_name_first'] . "</td>";
+echo "<td>" . $row['char_name_last'] . "</td>";
+echo "</tr>";
+}
+echo "</table>";
+
                 ?>
+<br>
+<br>
+<br>
+<BR>
+<?php
+
+// Check connection
+if (mysqli_connect_errno())
+{
+    echo "Failed to connect to MySQL: " . mysqli_connect_error();
+}
+
+$result = mysqli_query($cdbh,"SELECT * FROM characters");
+
+echo "<table border='1'>
+<tr>
+<th>Strength</th>
+<th>Endurance</th>
+
+</tr>";
+
+while($row = mysqli_fetch_array($result))
+{
+    echo "<tr>";
+    echo "<td>" . $row['char_str'] . "</td>";
+    echo "<td>" . $row['char_end'] . "</td>";
+
+    echo "</tr>";
+}
+echo "</table>";
+
+?>
+
+<?php
+
+// Check connection
+if (mysqli_connect_errno())
+{
+    echo "Failed to connect to MySQL: " . mysqli_connect_error();
+}
+
+$result = mysqli_query($cdbh,"SELECT * FROM characters");
+
+echo "<table border='1'>
+<tr>
+<th>Agility</th>
+<th>Dexterity</th>
+
+</tr>";
+
+while($row = mysqli_fetch_array($result))
+{
+    echo "<tr>";
+    echo "<td>" . $row['char_agi'] . "</td>";
+    echo "<td>" . $row['char_dex'] . "</td>";
+    echo "</tr>";
+}
+echo "</table>";
+
+?>
+<?php
+
+// Check connection
+if (mysqli_connect_errno())
+{
+    echo "Failed to connect to MySQL: " . mysqli_connect_error();
+}
+
+$result = mysqli_query($cdbh,"SELECT * FROM characters");
+
+echo "<table border='1'>
+<tr>
+<th>Technical</th>
+<th>Intelligence</th>
+
+</tr>";
+
+while($row = mysqli_fetch_array($result))
+{
+    echo "<tr>";
+    echo "<td>" . $row['char_tec'] . "</td>";
+    echo "<td>" . $row['char_int'] . "</td>";
+    echo "</tr>";
+}
+echo "</table>";
+
+?>
+<?php
+
+// Check connection
+if (mysqli_connect_errno())
+{
+    echo "Failed to connect to MySQL: " . mysqli_connect_error();
+}
+
+$result = mysqli_query($cdbh,"SELECT * FROM characters");
+
+echo "<table border='1'>
+<tr>
+<th>Willpower</th>
+<th>Perception</th>
+
+</tr>";
+
+while($row = mysqli_fetch_array($result))
+{
+    echo "<tr>";
+    echo "<td>" . $row['char_wil'] . "</td>";
+    echo "<td>" . $row['char_per'] . "</td>";
+    echo "</tr>";
+}
+echo "</table>";
+
+?>
+<?php
+
+// Check connection
+if (mysqli_connect_errno())
+{
+    echo "Failed to connect to MySQL: " . mysqli_connect_error();
+}
+
+$result = mysqli_query($cdbh,"SELECT * FROM characters");
+
+echo "<table border='1'>
+<tr>
+<th>Charisma</th>
+<th>Magical</th>
+</tr>";
+
+while($row = mysqli_fetch_array($result))
+{
+    echo "<tr>";
+    echo "<td>" . $row['char_cha'] . "</td>";
+    echo "<td>" . $row['char_mag'] . "</td>";
+    echo "</tr>";
+}
+echo "</table>";
+
+?>

@@ -21,7 +21,7 @@ global: {
   shadowType: "hybrid",
   showClose: true,
   enableDragResize: true,
-  contentBackgroundColor: "#000000",
+  contentBackgroundColor: "#ffffff",
   textColor: "#c41913",
   boxColor: "#000000",
   animationTime: 3
