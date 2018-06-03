@@ -19,11 +19,11 @@
 <footer>
 <dev id="footer">
 
-    <a href="play.php" class="floatbox" data-fb-options="instanceName:play overlayOpacity:0
-    closeOnNewWindow:false outsideClickCloses:false contentClickCloses:false" onclick="fb.start('play'); ">
-        Play</a>
+    <a href="Stats.php" class="floatbox" data-fb-options="instanceName:stats overlayOpacity:0
+    closeOnNewWindow:false outsideClickCloses:false contentClickCloses:false" onclick="fb.start('stats'); ">
+        Stats</a>
     <script>
-        var play = fb.getInstance( 'play' );
+        var play = fb.getInstance( 'stats' );
     </script>
 
     <a href="toon.php" class="floatbox" data-fb-options="instanceName:toon overlayOpacity:0
@@ -34,12 +34,12 @@
         var toon = fb.getInstance( 'toon' );
     </script>
 
-    <a href="charcrea.php" class="floatbox" data-fb-options="instanceName:charcrea overlayOpacity:0
-    closeOnNewWindow:false outsideClickCloses:false contentClickCloses:false" onclick="fb.start('tube'); ">
-        charcrea</a>
+    <a href="charcreate.php" class="floatbox" data-fb-options="instanceName:charcrea overlayOpacity:0
+    closeOnNewWindow:false outsideClickCloses:false contentClickCloses:false" onclick="fb.start('charcreate'); ">
+        charcreate</a>
 
     <script>
-        var toon = fb.getInstance( 'charcrea' );
+        var toon = fb.getInstance( 'charcreate' );
     </script>
 
     <a href="thetube.php" class="floatbox" data-fb-options="instanceName:tube overlayOpacity:0
